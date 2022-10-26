@@ -18,10 +18,9 @@ public class ObjectPairDriver {
         ObjectPair[] stadiums = new ObjectPair[3];
         stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
         stadiums[1] = new ObjectPair("Michigan Stadium", 109901);
-        stadiums[2] = new ObjectPair("Lane Stadium", "66,233");
+        stadiums[2] = new ObjectPair("Lane Stadium", 66233);
 
         System.out.println(stadiums[0]);
-
         System.out.println(largestStadium(stadiums));
     }
 
@@ -33,8 +32,28 @@ public class ObjectPairDriver {
      */
     public static String largestStadium(ObjectPair[] stadiums) {
         // TODO: реализуйте это метод в соответствии с комментариями
+        int peopleMax = 0;
+        int count = -1;
+        for (int i = 0; i < stadiums.length; i++) {
+            if ( stadiums[i].getFirst() instanceof String && stadiums[i].getSecond() instanceof Integer) {
+            } else {
+                throw new ArrayStoreException();        // Предпринята попытка сохранения в массиве объекта недопустимого типа.
+            }
+        }
 
-        return "";
+        for (int i = 0; i < stadiums.length; i++) {
+                if ((int) stadiums[i].getSecond() > peopleMax) {
+                    peopleMax = (int) stadiums[i].getSecond();
+                    count = i;
+                }
+        }
+        return stadiums[count].getFirst() + "";
     }
 
 }
+
+
+// БОНУСНЫЙ ВОПРОС: Почему компилируется эта строка кода?
+// stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
+
+// Выполняется неявное приведение к типам String (first) и Integer (second)

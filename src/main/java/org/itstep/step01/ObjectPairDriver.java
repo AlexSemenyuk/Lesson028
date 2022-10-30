@@ -35,6 +35,7 @@ public class ObjectPairDriver {
         int peopleMax = 0;
         int count = -1;
         for (int i = 0; i < stadiums.length; i++) {
+            // це зайва перевірка. у будь якому разі буде ClassCastException
             if ( stadiums[i].getFirst() instanceof String && stadiums[i].getSecond() instanceof Integer) {
             } else {
                 throw new ArrayStoreException();        // Предпринята попытка сохранения в массиве объекта недопустимого типа.

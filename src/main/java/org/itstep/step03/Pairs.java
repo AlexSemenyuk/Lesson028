@@ -14,16 +14,16 @@ import java.util.Scanner;
 // * @version V1, 8/2017
 // */
 public class Pairs<K, V> implements Iterable<Pair<K, V>> {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in); // Це не потрібно
     private final int number = 10;
     /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
     /**
      * Создайте коллекцию, в которой будут храниться элементы, добавленные парами.
      */
-    Pair<K, V>[] pair = new Pair[number];
+    private Pair<K, V>[] pair = new Pair[number];
 
 
-    public Pairs() {
+    public Pairs() { // це не потрібно
     }
 
     /**
@@ -39,7 +39,7 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
             if (pair.length == number && pair[i] == null) {
                 pair[i] = new Pair<>(first, second);
                 return true;
-            } else if (pair.length < number) {
+            } else if (pair.length < number) {// це зайве
                 pair = Arrays.copyOf(pair, pair.length + 1);
                 pair[pair.length-1] = new Pair<>(first, second);
                 return true;
@@ -65,6 +65,7 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 
 
         public PairIterator(Pair<K, V>[] pair) {
+            // зайві коментарі коду краще прибирати
 //            this.pair = pair;
             this.index = -1;
         }
